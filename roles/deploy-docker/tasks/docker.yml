@@ -1,0 +1,2 @@
+- name: "Run docker DB"
+  shell: docker run --name db -v /home/ubuntu/efs/db:/var/lib/postgresql/data -d postgres

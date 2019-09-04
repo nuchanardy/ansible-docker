@@ -1,0 +1,12 @@
+- name: "Copy file to Server"
+  copy:
+    src: setup-ec2-mount-instructions.sh
+    dest: /home/{{ user }}/
+
+- name: "Run file setup-ec2-mount-instructions.sh"
+  shell: bash setup-ec2-mount-instructions.sh {{ dns_name_efs }}
+  args:
+    chdir: /home/{{ user }}
+
+- name: "Remove all scripts"
+  shell: rm setup-ec2-mount-instructions.sh 
